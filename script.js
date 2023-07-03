@@ -159,9 +159,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await response.json()
       let city = data.results[0].components.city
       let uniqueId = Date.now()
+      setHeadHeight() 
       getWeatherData(city, uniqueId)
       updateBackgroundImage(city, uniqueId)  
-      setHeadHeight() 
     } catch (error) {
       console.error("Error:", error)
     }
