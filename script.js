@@ -1,10 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Get references to DOM elements
-  let cityInput = document.getElementById("city-input")
-  let submitButton = document.getElementById("submit-button")
-  let clearButton = document.getElementById("clear-button")
-  let weatherDisplay = document.getElementById("weather-display")
-
   // Function to handle setting the height of the .head element
   function setHeadHeight() {
     let headElement = document.querySelector(".head")
@@ -17,8 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
       headElement.style.height = ""
     }
   }
-
-  setHeadHeight()
+  // Get references to DOM elements
+  let cityInput = document.getElementById("city-input")
+  let submitButton = document.getElementById("submit-button")
+  let clearButton = document.getElementById("clear-button")
+  let weatherDisplay = document.getElementById("weather-display")
 
   // Event listener for the clear button
   clearButton.addEventListener("click", function () {
@@ -163,10 +160,12 @@ document.addEventListener("DOMContentLoaded", () => {
       let city = data.results[0].components.city
       let uniqueId = Date.now()
       getWeatherData(city, uniqueId)
-      updateBackgroundImage(city, uniqueId)
+      updateBackgroundImage(city, uniqueId)  
+      setHeadHeight() 
     } catch (error) {
       console.error("Error:", error)
     }
+  
   }
 
   async function getWeatherData(city) {
@@ -193,6 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Pass the fetched data to both functions
     updateWeatherData(data, dates, temperatures, uniqueId)
     updateBackgroundImage(city, uniqueId)
+    setHeadHeight() 
   }
 
   // Fetch and display a background image for a given city
@@ -256,9 +256,8 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         errorMessage.remove()
       }, 3000)
-      setHeadHeight()
-
-      return
+    
+      return  
     }
 
     let card = document.createElement("div")
@@ -356,14 +355,14 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
     </div>
 `
-console.log(getWeatherIcon(data.list[0].weather[0].id))
+setHeadHeight()
+
       // Check if the card already exists and replace it if it does
       let cards = document.querySelectorAll(".weather-card")
       if (cards.length >= 3) {
         cards[0].remove()
       }
       weatherDisplay.appendChild(card)
-      setHeadHeight()
 
       displayForecast(data, uniqueId)
 
@@ -478,6 +477,7 @@ console.log(getWeatherIcon(data.list[0].weather[0].id))
     forecastElement.innerHTML = forecastHTML
   }
   handlePressureIcons()
+
   // Update the chart
   function createTemperatureChart(chartId, dates, temperatures) {
     setTimeout(() => {
@@ -540,8 +540,6 @@ console.log(getWeatherIcon(data.list[0].weather[0].id))
       pressureLowIcon.classList.remove("none")
     }
   }
-
-
 
   // Function to search for a city
   function searchCity() {

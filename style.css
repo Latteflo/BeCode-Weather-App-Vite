@@ -16,7 +16,7 @@ body {
 }
 
 .head {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,6 @@ body {
   font-size: 2rem;
   font-weight: bold;
   margin: 0 auto;
-  /*height: 100vh;*/
 }
 
 h1 {
