@@ -59,78 +59,79 @@ document.addEventListener("DOMContentLoaded", () => {
   function getWeatherIcon(weatherCode) {
     const weatherIcons = {
       "01d": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411194/01d_uetvld.svg",
-      "01n": "01n.svg",
-      "02d": "02d.svg",
-      "02n": "02n.svg",
-      "03d": "03d.svg",
-      "03n": "03n.svg",
-      "04d": "04d.svg",
-      "04n": "04n.svg",
-      "09d": "09d.svg",
-      "09n": "09n.svg",
-      "10d": "10d.svg",
-      "10n": "10n.svg",
-      "11d": "11d.svg",
-      "11n": "11n.svg",
-      "13d": "13d.svg",
-      "13n": "13n.svg",
-      "50d": "50d.svg",
-      "50n": "50n.svg",
-      200: "thunderstorms-day-rain.svg",
-      201: "thunderstorms-day-rain.svg",
-      202: "thunderstorms-day-rain.svg",
-      210: "thunderstorms-day.svg",
-      211: "thunderstorms-day.svg",
-      212: "thunderstorms-day.svg",
-      221: "thunderstorms-day.svg",
-      230: "thunderstorms-day-rain.svg",
-      231: "thunderstorms-day-rain.svg",
-      232: "thunderstorms-day-rain.svg",
-      300: "drizzle.svg",
-      301: "drizzle.svg",
-      302: "drizzle.svg",
-      310: "drizzle.svg",
-      311: "drizzle.svg",
-      312: "drizzle.svg",
-      313: "drizzle.svg",
-      314: "drizzle.svg",
-      321: "drizzle.svg",
-      500: "rain.svg",
-      501: "rain.svg",
-      502: "rain.svg",
-      503: "rain.svg",
-      504: "rain.svg",
-      511: "sleet.svg",
-      520: "drizzle.svg",
-      521: "drizzle.svg",
-      522: "drizzle.svg",
-      531: "drizzle.svg",
-      600: "snow.svg",
-      601: "snow.svg",
-      602: "snow.svg",
-      611: "sleet.svg",
-      612: "sleet.svg",
-      613: "sleet.svg",
-      615: "snow.svg",
-      616: "snow.svg",
-      620: "snow.svg",
-      621: "snow.svg",
-      622: "snow.svg",
-      701: "mist.svg",
-      711: "smoke.svg",
-      721: "haze-day.svg",
-      731: "dust-wind.svg",
-      741: "fog-day.svg",
-      751: "dust.svg",
-      761: "dust.svg",
-      762: "dust.svg",
-      771: "wind.svg",
-      781: "tornado.svg",
-      800: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411194/01d_uetvld.svg",
-      801: "partly-cloudy-day.svg",
-      802: "partly-cloudy-day.svg",
-      803: "overcast-day.svg",
-      804: "overcast-day.svg",
+      "01n": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411708/01n_jckp8n.svg",
+      "02d": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411707/02d_sk0wn7.svg",
+      "02n": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411707/02n_zxzj4o.svg",
+      "03d": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411708/03d_vaduqw.svg",
+      "03n": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411708/03n_xu5if6.svg",
+      "04d": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411709/04d_fdi5ln.svg",
+      "04n": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411709/04n_j7j3wy.svg",
+      "09d": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411708/09d_myrx08.svg",
+      "09n": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411709/09n_p2acrp.svg",
+      "10d": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411709/10d_fk5rlr.svg",
+      "10n": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411709/10n_bqsacv.svg",
+      "11d": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411710/11d_yocnaa.svg",
+      "11n": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411710/11n_if1who.svg",
+      "13d": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411711/13d_h8gxwx.svg",
+      "13n": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411711/13n_biqcet.svg",
+      "50d": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411711/50d_sv8ypp.svg",
+      "50n": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411711/50n_mpubgu.svg",
+      200: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411696/thunderstorms-day-rain_nmyyw4.svg",
+      201: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411696/thunderstorms-day-rain_nmyyw4.svg",
+      202: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411696/thunderstorms-day-rain_nmyyw4.svg",
+      210: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411696/thunderstorms-day_a7mqun.svg",
+      211: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411696/thunderstorms-day_a7mqun.svg",
+      212: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411696/thunderstorms-day_a7mqun.svg",
+      221: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411696/thunderstorms-day_a7mqun.svg",
+      230: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411696/thunderstorms-day-rain_nmyyw4.svg",
+      231: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411696/thunderstorms-day-rain_nmyyw4.svg",
+      232: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411696/thunderstorms-day-rain_nmyyw4.svg",
+      300: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411714/drizzle_isql7k.svg",
+      301: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411714/drizzle_isql7k.svg",
+      302: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411714/drizzle_isql7k.svg",
+      310: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411714/drizzle_isql7k.svg",
+      311: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411714/drizzle_isql7k.svg",
+      312: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411714/drizzle_isql7k.svg",
+      313: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411714/drizzle_isql7k.svg",
+      314: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411714/drizzle_isql7k.svg",
+      321: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411714/drizzle_isql7k.svg",
+      500: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411690/rain_plriga.svg",
+      501: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411690/rain_plriga.svg",
+      502: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411690/rain_plriga.svg",
+      503: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411690/rain_plriga.svg",
+      504: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411690/rain_plriga.svg",
+      511: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411690/sleet_zhhif8.svg",
+      520: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411714/drizzle_isql7k.svg",
+      521: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411714/drizzle_isql7k.svg",
+      522: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411714/drizzle_isql7k.svg",
+      531: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411714/drizzle_isql7k.svg",
+      600: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411691/snow_pk9eta.svg",
+      601: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411691/snow_pk9eta.svg",
+      602: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411691/snow_pk9eta.svg",
+      611: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411690/sleet_zhhif8.svg",
+      612: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411690/sleet_zhhif8.svg",
+      613: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411690/sleet_zhhif8.svg",
+      615: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411691/snow_pk9eta.svg",
+      616: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411691/snow_pk9eta.svg",
+      620: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411691/snow_pk9eta.svg",
+      621: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411691/snow_pk9eta.svg",
+      622: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411691/snow_pk9eta.svg",
+      701: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411680/mist_bae3c7.svg",
+      711: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411691/smoke_wqumnt.svg",
+      721: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411678/haze-day_xim9hq.svg",
+      722: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411680/haze-night_s92kl8.svg",
+      731: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411677/dust-wind_sdmsvj.svg",
+      741: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411678/fog-day_ryovix.svg",
+      751: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411713/dust_salsa8.svg",
+      761: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411713/dust_salsa8.svg",
+      762: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411713/dust_salsa8.svg",
+      771: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411702/wind_ipbhb3.svg",
+      781: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411698/tornado_zwb6ly.svg",
+      800: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411713/clear-day_qlusp5.svg",
+      801: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411684/partly-cloudy-day_q0umup.svg",
+      802: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411684/partly-cloudy-day_q0umup.svg",
+      803: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411683/overcast-day_xtigus.svg",
+      804: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411683/overcast-day_xtigus.svg",
     }
     return weatherIcons[weatherCode] || "not-available.svg"
   }
@@ -294,7 +295,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="right">
           <span class="element">
-            <img src="./public/humidity.svg" class="icon-right">
+            <img src="https://res.cloudinary.com/dceofngdq/image/upload/v1688411678/humidity_qfsyz5.svg" class="icon-right">
             <p>
               <span class="static">Humidity:</span> ${
                 data.list[0].main.humidity
@@ -303,15 +304,15 @@ document.addEventListener("DOMContentLoaded", () => {
           </span>
     
           <span class="element">
-            <img src="./public/wind.svg" class="icon-right">
+            <img src="https://res.cloudinary.com/dceofngdq/image/upload/v1688411706/windsock_ezvyob.svg" class="icon-right">
             <p>
               <span class="static">Wind:</span> ${data.list[0].wind.speed} km/h
             </p>
           </span>
     
           <span class="element pressure">
-          <img src="./public/pressure-high.svg" class="icon-right pressure-high">
-          <img src="./public/pressure-low.svg" class="icon-right pressure-low none">
+          <img src="https://res.cloudinary.com/dceofngdq/image/upload/v1688411689/pressure-high_mtekva.svg" class="icon-right pressure-high">
+          <img src="https://res.cloudinary.com/dceofngdq/image/upload/v1688411689/pressure-low_pj5ss5.svg" class="icon-right pressure-low none">
           <p>
             <span class="static">Pressure:</span> ${
               data.list[0].main.pressure
@@ -320,7 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </span>
 
           <span class="element">
-            <img src="./public/umbrella.svg" class="icon-right">
+            <img src="https://res.cloudinary.com/dceofngdq/image/upload/v1688411698/umbrella_shmk5w.svg" class="icon-right">
             <p>
               <span class="static">Precipitation:</span> ${data.list[0].pop}%
             </p>
@@ -334,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div id="weather-forecast-${uniqueId}" class="weather-forecast">
       </div>
       <div class="card-footer">
-        <img src="./public/sunrise.svg" alt="sunrise icon" class="sunrise">
+        <img src="https://res.cloudinary.com/dceofngdq/image/upload/v1688411692/sunrise_p6le4x.svg" alt="sunrise icon" class="sunrise">
         <p>
           Sunrise:
           ${new Date(data.city.sunrise * 1000).toLocaleTimeString([], {
@@ -343,7 +344,7 @@ document.addEventListener("DOMContentLoaded", () => {
           })}
           |
         </p>
-        <img src="./public/sunset.svg" alt="sunset icon" class="sunset">
+        <img src="https://res.cloudinary.com/dceofngdq/image/upload/v1688411692/sunset_ja0dfu.svg" alt="sunset icon" class="sunset">
         <p>
           Sunset:
           ${new Date(data.city.sunset * 1000).toLocaleTimeString([], {
@@ -461,7 +462,7 @@ console.log(getWeatherIcon(data.list[0].weather[0].id))
       forecastHTML += `
           <div class="day-card-${uniqueId}-${index} day-card">
           <div class="weather-forecast-date">${dayOfWeek}</div>
-          <img class="weather-forecast-icon" src="./public/${getWeatherIcon(
+          <img class="weather-forecast-icon" src="${getWeatherIcon(
             data.list[0].weather[0].id
           )}" alt="weather icon">
 
@@ -476,7 +477,7 @@ console.log(getWeatherIcon(data.list[0].weather[0].id))
     forecastHTML = forecastHTML + `</div>`
     forecastElement.innerHTML = forecastHTML
   }
-
+  handlePressureIcons()
   // Update the chart
   function createTemperatureChart(chartId, dates, temperatures) {
     setTimeout(() => {
@@ -525,22 +526,22 @@ console.log(getWeatherIcon(data.list[0].weather[0].id))
     }, 0)
   }
 
-  //// Pressure icon toggle
-  //function handlePressureIcons() {
-  //  const pressureElement = document.querySelector(".element")
-  //  const pressureHighIcon = pressureElement.querySelector(".pressure-high")
-  //  const pressureLowIcon = pressureElement.querySelector(".pressure-low")
+  // Pressure icon toggle
+  function handlePressureIcons() {
+    const pressureElement = document.querySelector(".element")
+    const pressureHighIcon = pressureElement.querySelector(".pressure-high")
+    const pressureLowIcon = pressureElement.querySelector(".pressure-low")
 
-  //  if (data.list[0].main.pressure > 1000) {
-  //    pressureHighIcon.classList.remove("none")
-  //    pressureLowIcon.classList.add("none")
-  //  } else {
-  //    pressureHighIcon.classList.add("none")
-  //    pressureLowIcon.classList.remove("none")
-  //  }
-  //}
+    if (data.list[0].main.pressure > 1000) {
+      pressureHighIcon.classList.remove("none")
+      pressureLowIcon.classList.add("none")
+    } else {
+      pressureHighIcon.classList.add("none")
+      pressureLowIcon.classList.remove("none")
+    }
+  }
 
-  //handlePressureIcons()
+
 
   // Function to search for a city
   function searchCity() {
