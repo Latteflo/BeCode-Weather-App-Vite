@@ -1,0 +1,374 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: monospace;
+  box-sizing: border-box;
+  background-image: url("./media/background.jpg");
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/025/237/original/5177180.jpg?1642689877");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+}
+
+
+.head {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 2rem;
+  font-weight: bold;
+  /*height: 100vh;*/
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: "Lexend Deca", sans-serif;
+  letter-spacing: 3px;
+  color: black;
+  text-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+}
+
+.searchArea {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 88%;
+}
+
+.searchArea input {
+  width: 80%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  margin: 5px;
+}
+
+.searchArea button {
+  width: 10%;
+  padding: 10px;
+  font-size: 13px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: #f4f4f4;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+.searchArea button:hover {
+  background-color: #ddd;
+}
+#location {
+  width: 10%;
+}
+#clear-button,
+#location,
+#submit-button,
+input {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.error-message {
+  width: 25%;
+  height: 100%;
+  align-items: center;
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #f4f4f4;
+  transition: background-color 0.3s ease;
+}
+
+#weather-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.weather-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 29%;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  color: #333;
+  transition: background-color 0.3s ease;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.static {
+  font-size: medium;
+  font-weight: bold;
+  color: #6b6969;
+}
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: -webkit-fill-available;
+  background: transparent;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 3rem;
+}
+.active {
+  color: #EA4D4D;
+  font-size: 1.5rem;
+}
+.image-container {
+  position: relative;
+  width: -webkit-fill-available;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: none;
+  border-radius: 15px;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 4%;
+  width: 40%;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.temperature-data {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.max {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.min {
+  font-size: small;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: #726f6f;
+  transition: color 0.3s ease;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 4%;
+  width: 44%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+.element{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+.element img{
+  width: 50px;
+}
+.none{
+  display:none;
+}
+.weather-forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.weather-forecast::-webkit-scrollbar {
+  width: 2px;
+}
+
+.weather-forecast::-webkit-scrollbar-thumb {
+  background-color: #75abb684;
+}
+.weather-forecast::-webkit-scrollbar-track {
+  height: 2px;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.daily-forecast {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  overflow: scroll;
+}
+
+.day-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  background-color: #f4f4f467;
+  color: #333;
+  transition: background-color 0.3s ease;
+  align-items: center;
+  border: #333 solid 1px;
+  border-radius: 15px;
+  padding: 10px 15px;
+  margin: 4px;
+}
+.temperatures {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.max {
+  font-size: 15px;
+  font-weight: bold;
+}
+.min {
+  font-size: 13px;
+  font-weight: bold;
+  color: #6b6969;
+}
+.weather-forecast-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  margin: 5px;
+}
+
+canvas {
+  height: 20%;
+  width: 100%;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.sunset,
+.sunrise {
+  width: 50px;
+  height: 50px;
+}
+
+/* Responsive styles */
+
+@media screen and (max-width: 320px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .searchArea {
+    width: 100%;
+  }
+  .sunset,
+  .sunrise {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .searchArea button {
+    width: 19%;
+    margin: 1px;
+  }
+  .searchArea input {
+    width: 80%;
+  }
+
+  .weather-display {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .weather-card {
+    width: 360px;
+  }
+
+  .sunset,
+  .sunrise {
+    width: 30px;
+    height: 30px;
+  }
+}

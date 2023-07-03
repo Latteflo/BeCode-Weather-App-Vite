@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A weather app app made by Florentina Simion within the BeCode training "
+    />
+    <link rel="shortcut icon" href="./media/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Lexend+Peta&family=Libre+Franklin:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Weather App - compare the weather in diferent cities</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="head">
+          <h1>Weather App</h1>
+          <div class="searchArea">
+            <label for="city-input">
+              <input
+                type="text"
+                id="city-input"
+                placeholder="Enter city"
+              /> </label
+            ><button id="submit-button">Search</button>
+            <button id="location">
+              <i class="fa-solid fa-location-dot"></i>
+            </button>
+            <button id="clear-button">Clear</button>
+          </div>
+        </div>
+        <div id="weather-display"></div>
+      </section>
+    </main>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
