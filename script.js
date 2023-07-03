@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Weather icons
   function getWeatherIcon(weatherCode) {
     const weatherIcons = {
-      "01d": "01d.svg",
+      "01d": "https://res.cloudinary.com/dceofngdq/image/upload/v1688411194/01d_uetvld.svg",
       "01n": "01n.svg",
       "02d": "02d.svg",
       "02n": "02n.svg",
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
       762: "dust.svg",
       771: "wind.svg",
       781: "tornado.svg",
-      800: "clear-day.svg",
+      800: "https://res.cloudinary.com/dceofngdq/image/upload/v1688411194/01d_uetvld.svg",
       801: "partly-cloudy-day.svg",
       802: "partly-cloudy-day.svg",
       803: "overcast-day.svg",
@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
               year: "numeric",
             })}
           </p>
-          <img src="./public/${getWeatherIcon(
+          <img src="${getWeatherIcon(
             data.list[0].weather[0].id
           )}" alt="weather icon">
           <p class="temperature-data">
@@ -355,6 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
     </div>
 `
+console.log(getWeatherIcon(data.list[0].weather[0].id))
       // Check if the card already exists and replace it if it does
       let cards = document.querySelectorAll(".weather-card")
       if (cards.length >= 3) {
