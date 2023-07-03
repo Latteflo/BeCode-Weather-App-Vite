@@ -23,6 +23,7 @@ body {
   width: 100%;
   font-size: 2rem;
   font-weight: bold;
+  margin: 0 auto;
   /*height: 100vh;*/
 }
 
@@ -39,23 +40,26 @@ h1 {
 .searchArea {
   display: flex;
   width: 100%;
-  align-items: center;
   flex-direction: row;
-  flex-wrap: wrap;
   align-content: center;
   justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .searchArea input {
-  width: 85%;
-  min-width: 75%;
+  width: 80%;
   font-size: 1.5rem;
+}
+.buttons {
+  display: flex;
 }
 
 .searchArea button {
   font-size: 1.5rem;
   cursor: pointer;
   color: #4f4e4e;
+  margin: 0;
 }
 .searchArea button:hover {
   background-color: #b97d7d;
@@ -74,7 +78,6 @@ input {
   margin: 3%;
   padding: 15px 30px;
 }
-
 
 .error-message {
   width: 25%;
@@ -103,7 +106,7 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width:40%;
+  max-width: 40%;
   min-width: 300px;
   margin: 10px;
   padding: 10px;
@@ -332,6 +335,10 @@ canvas {
     width: 100%;
     flex-wrap: wrap;
   }
+  .searchArea input {
+    width: 100%;
+  }
+
   .weather-card {
     width: 240px;
   }
@@ -342,15 +349,24 @@ canvas {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 780px) {
   h1 {
     font-size: 2rem;
   }
   .searchArea {
     width: 100%;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
-
+  .searchArea input {
+    width: 88%;
+    justify-content: center;
+  }
+  .buttons{
+    width: 100%;
+    justify-content: center;
+  }
   #clear-button,
   #location,
   #submit-button,

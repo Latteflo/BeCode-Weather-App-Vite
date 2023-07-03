@@ -7,9 +7,12 @@
       name="description"
       content="A weather app app made by Florentina Simion within the BeCode training "
     />
-    <link rel="shortcut icon" href="./media/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./media/favicon.ico" type="image/x-icon" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Lexend+Peta&family=Libre+Franklin:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Lexend+Peta&family=Libre+Franklin:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -27,16 +30,15 @@
           <h1>Weather App</h1>
           <div class="searchArea">
             <label for="city-input">
-              <input
-                type="text"
-                id="city-input"
-                placeholder="Enter city"
-              /> </label
-            ><button id="submit-button">Search</button>
-            <button id="location">
-              <i class="fa-solid fa-location-dot"></i>
-            </button>
-            <button id="clear-button">Clear</button>
+              <input type="text" id="city-input" placeholder="Enter city" />
+            </label>
+            <div class="buttons">
+              <button id="submit-button">Search</button>
+              <button id="location">
+                <i class="fa-solid fa-location-dot"></i>
+              </button>
+              <button id="clear-button">Clear</button>
+            </div>
           </div>
         </div>
         <div id="weather-display"></div>
