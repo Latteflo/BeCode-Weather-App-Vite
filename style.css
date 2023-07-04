@@ -105,7 +105,7 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 40%;
+  max-width: 30%;
   min-width: 300px;
   margin: 10px;
   padding: 10px;
@@ -239,6 +239,7 @@ a {
   align-items: center;
   width: 100%;
   overflow-x: scroll;
+  white-space: nowrap
 }
 
 .weather-forecast::-webkit-scrollbar {
