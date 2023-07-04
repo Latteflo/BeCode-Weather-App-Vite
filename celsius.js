@@ -1,5 +1,5 @@
 // Convert temperature to Celsius
-function displayCelsiusTemperature(event) {
+const displayCelsiusTemperature = (event) => {
   event.preventDefault()
   let fahrenheitLink = document.querySelector(
     `#fahrenheit-link-${event.target.id.split("-")[2]}`

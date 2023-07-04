@@ -3,14 +3,11 @@ import setHeadHeight from "./setHeightToHead"
 import displayFahrenheitTemperature from "./fahrenheit"
 import displayCelsiusTemperature from "./celsius"
 import createTemperatureChart from "./chart.js"
-import updateBackgroundImage from "./displayImages"
-import displayForecast from "./displayForecast"
 
 // Get references to DOM elements
 let cityInput = document.getElementById("city-input")
 let submitButton = document.getElementById("submit-button")
 let clearButton = document.getElementById("clear-button")
-let locationButton = document.getElementById("location")
 let weatherDisplay = document.getElementById("weather-display")
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -50,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   // Get location by coordinates
-  locationButton.addEventListener("click", function () {
+  document.getElementById("location").addEventListener("click", function () {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition)
     } else {
@@ -110,8 +107,52 @@ document.addEventListener("DOMContentLoaded", () => {
     setHeadHeight()
   }
 
+  // Fetch and display a background image for a given city
+  const updateBackgroundImage = async (city, uniqueId) => {
+    try {
+      //const apiKeyUnsplash = config.API_KEY_UNSPLASH
+      const apiKeyUnsplash = import.meta.env.VITE_API_KEY_UNSPLASH
+      const response = await fetch(
+        `https://api.unsplash.com/search/photos?query=${city}&client_id=${apiKeyUnsplash}`
+      )
+      if (!response.ok) {
+        throw new Error("Failed to get city image from Unsplash")
+      }
+      const data = await response.json()
+
+      let imageCarousel = document.querySelector(`#image-carousel-${uniqueId}`)
+      if (imageCarousel) {
+        imageCarousel.innerHTML = ""
+        data.results.forEach((image) => {
+          let img = document.createElement("img")
+          img.src = image.urls.regular
+          img.classList.add("carousel-image")
+          imageCarousel.appendChild(img)
+        })
+        startCarousel(uniqueId)
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  //Image Carousel
+  function startCarousel(uniqueId) {
+    let carouselImages = document.querySelectorAll(
+      `#image-carousel-${uniqueId} .carousel-image`
+    )
+    let currentIndex = 0
+    carouselImages[currentIndex].style.display = "block"
+
+    setInterval(() => {
+      carouselImages[currentIndex].style.display = "none"
+      currentIndex = (currentIndex + 1) % carouselImages.length
+      carouselImages[currentIndex].style.display = "block"
+    }, 3000)
+  }
+
   // Display weather data and create/update the temperature chart
-  const updateWeatherData = (data, dates, temperatures, uniqueId) => {
+  function updateWeatherData(data, dates, temperatures, uniqueId) {
     let maxTemp = Math.max(...data.list.map((wd) => wd.main.temp))
     let celsiusTemperature = Math.round(maxTemp)
 
@@ -257,11 +298,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateBackgroundImage(data.city.name)
     createTemperatureChart(`temperature-chart-${uniqueId}`, dates, temperatures)
-    handlePressureIcons()
+
     return uniqueId
   }
+  // Display the forecast data
 
-  const pressureChange = () => {
+  function displayForecast(data, uniqueId) {
+    let forecastElement = document.querySelector(
+      `#weather-forecast-${uniqueId}`
+    )
+    // Group the forecast data by day
+    let groupedByDay = data.list.reduce((grouped, item, index) => {
+      const date = new Date(item.dt * 1000)
+      const day = date.getUTCDate()
+      const month = date.getUTCMonth()
+      const year = date.getUTCFullYear()
+
+      const key = `${day}-${month}-${year}`
+
+      if (!grouped[key]) {
+        grouped[key] = []
+      }
+      grouped[key].push(item)
+      return grouped
+    }, {})
+
+    let forecastHTML = `<div class="daily-forecast-${uniqueId} daily-forecast">`
+
+    // Iterate over each day and calculate min and max temperatures
+    Object.values(groupedByDay).forEach((dayData, index) => {
+      const date = new Date(dayData[0].dt * 1000)
+      const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+      const dayOfWeek = dayNames[date.getDay()]
+
+      const temperatures = dayData.map((item) => item.main.temp)
+      const minTemp = Math.min(...temperatures)
+      const maxTemp = Math.max(...temperatures)
+
+      forecastHTML += `
+          <div class="day-card-${uniqueId}-${index} day-card">
+          <div class="weather-forecast-date">${dayOfWeek}</div>
+          <img class="weather-forecast-icon" src="${getWeatherIcon(
+            data.list[0].weather[0].id
+          )}" alt="weather icon">
+
+            <div class="temperatures-${uniqueId}-${index} temperatures">
+              <span class="max units"> ${Math.round(maxTemp)}°  </span>
+              <span class="min units"> ${Math.round(minTemp)}° </span>
+            </div>
+          </div>
+      `
+    })
+
+    forecastHTML = forecastHTML + `</div>`
+    forecastElement.innerHTML = forecastHTML
+  }
+  handlePressureIcons()
+
+  // Pressure icon toggle
+  function handlePressureIcons() {
     const pressureElement = document.querySelector(".element")
     const pressureHighIcon = pressureElement.querySelector(".pressure-high")
     const pressureLowIcon = pressureElement.querySelector(".pressure-low")
@@ -274,11 +369,9 @@ document.addEventListener("DOMContentLoaded", () => {
       pressureLowIcon.classList.remove("none")
     }
   }
-  // Pressure icon toggle
-  const handlePressureIcons = pressureChange
 
   // Function to search for a city
-  const searchCity = () => {
+  function searchCity() {
     let city = cityInput.value
     let uniqueId = Date.now()
     getWeatherData(city, uniqueId++)
