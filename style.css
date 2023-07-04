@@ -21,8 +21,6 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  font-size: 2rem;
-  font-weight: bold;
   margin: 0 auto;
 }
 
@@ -47,15 +45,15 @@ h1 {
 }
 
 .searchArea input {
-  width: 80%;
-  font-size: 1.5rem;
+  width: 65%;
+  font-size: 1rem;
 }
 .buttons {
   display: flex;
 }
 
 .searchArea button {
-  font-size: 1.5rem;
+  font-size: 1rem;
   cursor: pointer;
   color: #4f4e4e;
   margin: 0;
@@ -371,7 +369,7 @@ canvas {
   #location,
   #submit-button,
   input {
-    margin: 3%;
+    margin: 1%;
     padding: 5px 15px;
   }
   .weather-display {

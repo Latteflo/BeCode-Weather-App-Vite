@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return uniqueId
   }
 
-  const newLocal = () => {
+  const pressureChange = () => {
     const pressureElement = document.querySelector(".element")
     const pressureHighIcon = pressureElement.querySelector(".pressure-high")
     const pressureLowIcon = pressureElement.querySelector(".pressure-low")
@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   // Pressure icon toggle
-  const handlePressureIcons = newLocal
+  const handlePressureIcons = pressureChange
 
   // Function to search for a city
   const searchCity = () => {
