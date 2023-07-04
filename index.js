@@ -4,8 +4,7 @@ import displayFahrenheitTemperature from "./fahrenheit"
 import displayCelsiusTemperature from "./celsius"
 import createTemperatureChart from "./chart.js"
 import updateBackgroundImage from "./displayImages"
-
-
+import displayForecast from "./displayForecast"
 
 // Get references to DOM elements
 let cityInput = document.getElementById("city-input")
@@ -51,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   // Get location by coordinates
-   locationButton.addEventListener("click", function () {
+  locationButton.addEventListener("click", function () {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition)
     } else {
@@ -110,9 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
     updateBackgroundImage(city, uniqueId)
     setHeadHeight()
   }
-
-
-
 
   // Display weather data and create/update the temperature chart
   const updateWeatherData = (data, dates, temperatures, uniqueId) => {
@@ -264,60 +260,8 @@ document.addEventListener("DOMContentLoaded", () => {
     handlePressureIcons()
     return uniqueId
   }
-  // Display the forecast data
-  const displayForecast =(data, uniqueId)=> {
-    let forecastElement = document.querySelector(
-      `#weather-forecast-${uniqueId}`
-    )
-    // Group the forecast data by day
-    let groupedByDay = data.list.reduce((grouped, item, index) => {
-      const date = new Date(item.dt * 1000)
-      const day = date.getUTCDate()
-      const month = date.getUTCMonth()
-      const year = date.getUTCFullYear()
 
-      const key = `${day}-${month}-${year}`
-
-      if (!grouped[key]) {
-        grouped[key] = []
-      }
-      grouped[key].push(item)
-      return grouped
-    }, {})
-
-    let forecastHTML = `<div class="daily-forecast-${uniqueId} daily-forecast">`
-
-    // Iterate over each day and calculate min and max temperatures
-    Object.values(groupedByDay).forEach((dayData, index) => {
-      const date = new Date(dayData[0].dt * 1000)
-      const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-      const dayOfWeek = dayNames[date.getDay()]
-
-      const temperatures = dayData.map((item) => item.main.temp)
-      const minTemp = Math.min(...temperatures)
-      const maxTemp = Math.max(...temperatures)
-
-      forecastHTML += `
-          <div class="day-card-${uniqueId}-${index} day-card">
-          <div class="weather-forecast-date">${dayOfWeek}</div>
-          <img class="weather-forecast-icon" src="${getWeatherIcon(
-            data.list[0].weather[0].id
-          )}" alt="weather icon">
-
-            <div class="temperatures-${uniqueId}-${index} temperatures">
-              <span class="max units"> ${Math.round(maxTemp)}°  </span>
-              <span class="min units"> ${Math.round(minTemp)}° </span>
-            </div>
-          </div>
-      `
-    })
-
-    forecastHTML = forecastHTML + `</div>`
-    forecastElement.innerHTML = forecastHTML
-  }
-
-  // Pressure icon toggle
-  const handlePressureIcons = () => {
+  const newLocal = () => {
     const pressureElement = document.querySelector(".element")
     const pressureHighIcon = pressureElement.querySelector(".pressure-high")
     const pressureLowIcon = pressureElement.querySelector(".pressure-low")
@@ -330,9 +274,11 @@ document.addEventListener("DOMContentLoaded", () => {
       pressureLowIcon.classList.remove("none")
     }
   }
+  // Pressure icon toggle
+  const handlePressureIcons = newLocal
 
   // Function to search for a city
-  function searchCity() {
+  const searchCity = () => {
     let city = cityInput.value
     let uniqueId = Date.now()
     getWeatherData(city, uniqueId++)
